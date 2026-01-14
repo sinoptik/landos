@@ -65,6 +65,9 @@ Your waitlist data will be stored in a Notion database.
 3.  Add the following properties (columns) to your database:
     - `Name` (Property type: `Title`) - This is usually the default first column.
     - `Email` (Property type: `Email`)
+    - `Referral Code` (Property type: `Text`)
+    - `Referred By` (Property type: `Text`)
+    - `Referrer` (Property type: `Relation`) (select the same database as the relation target)
     - _(Optional)_ `Signed Up At` (Property type: `Created time`) - For tracking when users signed up.
 4.  Obtain your Notion Integration Secret:
     - Go to [Notion Integrations](https://www.notion.so/my-integrations).
