@@ -25,6 +25,14 @@ export default function Header() {
 			</Link>
 
 			<div className="flex items-center gap-2">
+			<Link
+					href="https://bags.fm/9JYEuBn3nVoqj6pNarEK8H2xMphoTiwBKrri7s4FBAGS"
+					target="_blank"
+					rel="noopener noreferrer"
+					className="text-green-500 hover:text-green-600 font-medium transition-colors duration-200"
+				>
+					$WAITLY TOKEN
+				</Link>
 				<Link
 					href="https://github.com/new?template_name=Waitly&template_owner=revokslab"
 					target="_blank"
