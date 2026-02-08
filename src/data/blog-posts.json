@@ -1,0 +1,48 @@
+[
+  {
+    "title": "Why Shared Inboxes Are the Future of Customer Support",
+    "slug": "why-shared-inboxes-are-the-future-of-customer-support",
+    "topic": "Customer Support",
+    "publishedAt": "2026-01-15",
+    "writtenBy": "Leslie Alexander",
+    "excerpt": "Discover how shared inboxes eliminate silos, reduce response times, and help support teams collaborate without stepping on each other's toes.",
+    "content": [
+      "Customer support teams have long struggled with the chaos of individual email accounts, forwarded threads, and the dreaded 'Did anyone reply to this?' Slack message. Shared inboxes solve this by giving every team member visibility into every conversation — without the mess.",
+      "At Sinope.AI, we've watched hundreds of teams make the switch from fragmented inboxes to a single, unified view. The results speak for themselves: faster response times, fewer dropped conversations, and happier customers who actually feel heard.",
+      "A shared inbox isn't just about putting emails in one place. It's about creating a system where assignments are clear, context is preserved, and no message slips through the cracks. Features like collision detection prevent two agents from replying to the same thread, while internal notes let teammates collaborate behind the scenes.",
+      "The biggest misconception about shared inboxes is that they remove ownership. In reality, they do the opposite — every conversation has a clear assignee, and the entire team can see who's handling what. It's accountability without micromanagement.",
+      "If your support team is still juggling personal inboxes and CC chains, it might be time to rethink the workflow. A shared inbox won't just make your team faster — it'll make your customers notice the difference."
+    ]
+  },
+  {
+    "title": "How AI Agents Are Changing the Way Teams Handle Email",
+    "slug": "how-ai-agents-are-changing-the-way-teams-handle-email",
+    "topic": "Artificial Intelligence",
+    "publishedAt": "2026-01-28",
+    "writtenBy": "Michael Foster",
+    "excerpt": "AI-powered inbox agents can summarize threads, draft replies, and surface context — so your team spends less time reading and more time solving problems.",
+    "content": [
+      "Every support agent knows the feeling: you open a ticket and find a twelve-message thread full of back-and-forth, screenshots, and increasingly frustrated follow-ups. Before you can even start helping, you need to spend five minutes just figuring out what happened.",
+      "AI inbox agents change this equation entirely. By analyzing the full conversation history, an AI agent can produce a concise summary of the issue, highlight key details like order numbers or error codes, and even suggest a draft reply — all before a human ever touches the ticket.",
+      "At Sinope.AI, our Inbox Agent is designed to augment your team, not replace it. It handles the heavy lifting of comprehension and context-gathering, freeing up your agents to do what they do best: empathize with customers and solve problems creatively.",
+      "The impact on metrics is striking. Teams using AI-assisted triage report up to 40% faster first-response times and a measurable increase in customer satisfaction scores. When agents aren't bogged down reading walls of text, they bring more energy and thoughtfulness to every reply.",
+      "Of course, AI isn't perfect. The best implementations keep humans firmly in the loop, using AI as a co-pilot rather than an autopilot. The goal isn't to remove the personal touch from support — it's to make sure every interaction gets the attention it deserves, faster than ever before."
+    ]
+  },
+  {
+    "title": "5 Metrics Every Support Team Should Track in 2026",
+    "slug": "5-metrics-every-support-team-should-track-in-2026",
+    "topic": "Best Practices",
+    "publishedAt": "2026-02-05",
+    "writtenBy": "Tom Cook",
+    "excerpt": "From first response time to customer effort score, these are the numbers that separate good support teams from great ones.",
+    "content": [
+      "Running a support team without tracking metrics is like driving with your eyes closed — you might get lucky for a while, but eventually you're going to crash. The challenge isn't collecting data; it's knowing which numbers actually matter.",
+      "First Response Time (FRT) remains the single most important metric for most teams. Customers don't expect instant resolution, but they do expect acknowledgment. A fast first response signals that someone is listening, even if the full answer takes time. Aim for under one hour during business hours.",
+      "Customer Satisfaction (CSAT) is the classic metric, and for good reason. A simple post-interaction survey gives you a direct signal from the people who matter most. But don't just track the number — read the comments. The qualitative feedback is where the real insights live.",
+      "Resolution Time tells you how long it takes to fully close a ticket. While FRT measures responsiveness, resolution time measures effectiveness. If your FRT is great but resolution time is climbing, it could mean your team is triaging fast but struggling with complex issues.",
+      "Customer Effort Score (CES) is an underrated gem. It measures how easy it was for the customer to get their problem solved. A low-effort experience drives loyalty far more than a delightful one — people remember friction. Ask 'How easy was it to resolve your issue?' and watch for trends.",
+      "Finally, track your ticket volume trends over time. A rising tide of tickets isn't always a bad sign — it could mean your product is growing. But if volume is spiking while headcount stays flat, you need to invest in automation, self-service, or more hands on deck before quality starts to slip."
+    ]
+  }
+]

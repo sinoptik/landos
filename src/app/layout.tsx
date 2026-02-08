@@ -55,6 +55,7 @@ export default function RootLayout({
               <>
                 <NavbarLink href="/pricing">Pricing</NavbarLink>
                 <NavbarLink href="/about">About</NavbarLink>
+                <NavbarLink href="/blog">Blog</NavbarLink>
                 <NavbarLink href="#">Docs</NavbarLink>
                 <NavbarLink href="#" className="sm:hidden">
                   Log in
@@ -115,7 +116,7 @@ export default function RootLayout({
                 <FooterCategory title="Company">
                   <FooterLink href="#">About</FooterLink>
                   <FooterLink href="#">Careers</FooterLink>
-                  <FooterLink href="#">Blog</FooterLink>
+                  <FooterLink href="/blog">Blog</FooterLink>
                   <FooterLink href="#">Press Kit</FooterLink>
                 </FooterCategory>
                 <FooterCategory title="Resources">
