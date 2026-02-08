@@ -1,10 +1,19 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { Suspense, useState } from "react";
 
 import Countdown from "./countdown";
 import People from "./people";
 import WaitlistForm from "./form";
+
+function WaitlistFormFallback() {
+  return (
+    <div className="flex flex-col items-center justify-center gap-2 w-full max-w-md animate-pulse">
+      <div className="h-12 w-full rounded-md bg-muted" />
+      <div className="h-10 w-24 rounded-md bg-muted" />
+    </div>
+  );
+}
 
 export default function Hero({ waitlistPeople }: { waitlistPeople: number }) {
   const [isSuccess, setIsSuccess] = useState(false);
@@ -22,7 +31,9 @@ export default function Hero({ waitlistPeople }: { waitlistPeople: number }) {
         </p>
       </div> */}
       <div className="flex flex-col items-center justify-center gap-2 w-full max-w-md">
-        <WaitlistForm onSuccessChange={setIsSuccess} />
+        <Suspense fallback={<WaitlistFormFallback />}>
+          <WaitlistForm onSuccessChange={setIsSuccess} />
+        </Suspense>
       </div>
       <div className="flex items-center justify-center gap-2">
         <People count={waitlistPeople + 128} />
