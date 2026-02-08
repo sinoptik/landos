@@ -1,39 +1,43 @@
-import Image from 'next/image'
+import Image from "next/image";
 
-import { ButtonLink, PlainButtonLink } from '@/components/elements/button'
-import { Main } from '@/components/elements/main'
-import { GitHubIcon } from '@/components/icons/social/github-icon'
-import { XIcon } from '@/components/icons/social/x-icon'
-import { YouTubeIcon } from '@/components/icons/social/youtube-icon'
+import { ButtonLink, PlainButtonLink } from "@/components/elements/button";
+import { Main } from "@/components/elements/main";
+import { GitHubIcon } from "@/components/icons/social/github-icon";
+import { XIcon } from "@/components/icons/social/x-icon";
+import { YouTubeIcon } from "@/components/icons/social/youtube-icon";
 import {
   FooterCategory,
   FooterLink,
   FooterWithNewsletterFormCategoriesAndSocialIcons,
   NewsletterForm,
   SocialLink,
-} from '@/components/sections/footer-with-newsletter-form-categories-and-social-icons'
+} from "@/components/sections/footer-with-newsletter-form-categories-and-social-icons";
 import {
   NavbarLink,
   NavbarLogo,
   NavbarWithLinksActionsAndCenteredLogo,
-} from '@/components/sections/navbar-with-links-actions-and-centered-logo'
-import type { Metadata } from 'next'
-import './globals.css'
+} from "@/components/sections/navbar-with-links-actions-and-centered-logo";
+import type { Metadata } from "next";
+import "./globals.css";
 
 export const metadata: Metadata = {
-  title: 'Oatmeal Kit Demo',
-}
+  title: "Landy by Sinope.AI",
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="en">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin=""
+        />
         <link
           href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wdth,wght@0,112.5,200..900;1,112.5,200..900&display=swap"
           rel="stylesheet"
@@ -61,14 +65,14 @@ export default function RootLayout({
               <NavbarLogo href="/">
                 <Image
                   src="/img/logos/oatmeal-mona-color-mist-950.svg"
-                  alt="Oatmeal"
+                  alt="Landy by Sinope.AI"
                   className="dark:hidden"
                   width={113}
                   height={28}
                 />
                 <Image
                   src="/img/logos/oatmeal-mona-color-white.svg"
-                  alt="Oatmeal"
+                  alt="Landy by Sinope.AI"
                   className="not-dark:hidden"
                   width={113}
                   height={28}
@@ -94,8 +98,8 @@ export default function RootLayout({
                 headline="Stay in the loop"
                 subheadline={
                   <p>
-                    Get customer support tips, product updates and customer stories that you can archive as soon as they
-                    arrive.
+                    Get customer support tips, product updates and customer
+                    stories that you can archive as soon as they arrive.
                   </p>
                 }
                 action="#"
@@ -127,7 +131,7 @@ export default function RootLayout({
                 </FooterCategory>
               </>
             }
-            fineprint="© 2025 Oatmeal, Inc."
+            fineprint="© 2026 Sinope.AI, Inc."
             socialLinks={
               <>
                 <SocialLink href="https://x.com" name="X">
@@ -145,5 +149,5 @@ export default function RootLayout({
         </>
       </body>
     </html>
-  )
+  );
 }
