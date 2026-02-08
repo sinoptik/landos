@@ -94,7 +94,7 @@ To run this project on your local machine:
     First, fork this repository to your own GitHub account. Then, clone your fork:
 
     ```bash
-    git clone https://github.com/YOUR_USERNAME/Waitly.git
+    git clone git@github.com:sinoptik/landos.git
     # Replace YOUR_USERNAME with your GitHub username and Waitly with your forked repo name if different
     cd Waitly # Or your forked repo name
     ```
