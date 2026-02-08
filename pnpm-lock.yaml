@@ -23,6 +23,9 @@ importers:
       '@react-email/render':
         specifier: ^1.1.2
         version: 1.1.2(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+      '@tailwindplus/elements':
+        specifier: ^1.0.22
+        version: 1.0.22
       '@types/canvas-confetti':
         specifier: ^1.9.0
         version: 1.9.0
@@ -1126,6 +1129,9 @@ packages:
 
   '@tailwindcss/postcss@4.1.7':
     resolution: {integrity: sha512-88g3qmNZn7jDgrrcp3ZXEQfp9CVox7xjP1HN2TFKI03CltPVd/c61ydn5qJJL8FYunn0OqBaW5HNUga0kmPVvw==}
+
+  '@tailwindplus/elements@1.0.22':
+    resolution: {integrity: sha512-rpUVblTefHInmbanTreDqxkjGYV+S44EOIJS1UtyvY1+tn5PbdOkUkWar8cjkEZpCDPAXbswtF0tuxEkX3jk0g==}
 
   '@types/canvas-confetti@1.9.0':
     resolution: {integrity: sha512-aBGj/dULrimR1XDZLtG9JwxX1b4HPRF6CX9Yfwh3NvstZEm1ZL7RBnel4keCPSqs1ANRu1u2Aoz9R+VmtjYuTg==}
@@ -2654,6 +2660,8 @@ snapshots:
       '@tailwindcss/oxide': 4.1.7
       postcss: 8.5.3
       tailwindcss: 4.1.7
+
+  '@tailwindplus/elements@1.0.22': {}
 
   '@types/canvas-confetti@1.9.0': {}
 
