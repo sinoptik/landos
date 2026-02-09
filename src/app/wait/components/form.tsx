@@ -140,19 +140,19 @@ export default function WaitlistForm({ onSuccessChange }: FormProps) {
           animate={{ opacity: 1, y: 0 }}
           className="text-center space-y-4"
         >
-          <p className="text-lg font-medium">
+          <p className="text-lg font-medium text-mist-950 dark:text-white">
             Share your link to skip the line!
           </p>
           <div className="flex items-center gap-2 max-w-sm mx-auto">
             <input
               value={shareLink}
               readOnly
-              className="flex-1 px-3 py-2 border rounded-lg text-black text-sm bg-gray-50"
+              className="flex-1 px-3 py-2 border border-mist-300 dark:border-mist-700 rounded-full text-sm text-mist-950 dark:text-white bg-white dark:bg-mist-900"
             />
             <button
               type="button"
               onClick={copyLink}
-              className="px-4 py-2 text-black rounded-lg font-medium hover:bg-opacity-90"
+              className="inline-flex shrink-0 items-center justify-center rounded-full px-4 py-2 text-sm font-medium bg-mist-950/10 text-mist-950 hover:bg-mist-950/15 dark:bg-white/10 dark:text-white dark:hover:bg-white/20"
             >
               Copy
             </button>
@@ -160,7 +160,7 @@ export default function WaitlistForm({ onSuccessChange }: FormProps) {
           <button
             type="button"
             onClick={resetForm}
-            className="text-sm text-gray-600 underline"
+            className="text-sm text-mist-500 dark:text-mist-400 underline hover:text-mist-700 dark:hover:text-mist-300"
           >
             Join with another email
           </button>
@@ -182,13 +182,13 @@ export default function WaitlistForm({ onSuccessChange }: FormProps) {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="Email"
-                  className="flex-grow bg-background border border-border text-foreground px-4 py-3 rounded-[12px] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                  className="flex-grow bg-white dark:bg-mist-900 border border-mist-300 dark:border-mist-700 text-mist-950 dark:text-white placeholder:text-mist-500 px-4 py-3 rounded-full focus:outline-none focus:ring-2 focus:ring-mist-950/20 dark:focus:ring-white/20"
                   disabled={loading}
                   required
                 />
                 <button
                   type="submit"
-                  className="absolute right-0 top-0 bottom-0 text-black px-5 py-2 m-2 rounded-[12px] font-semibold hover:bg-opacity-90 disabled:opacity-50"
+                  className="absolute right-1.5 top-1.5 bottom-1.5 rounded-full px-5 font-medium text-sm bg-mist-950 text-white hover:bg-mist-800 dark:bg-mist-300 dark:text-mist-950 dark:hover:bg-mist-200 disabled:opacity-50"
                   disabled={loading}
                 >
                   Continue
@@ -200,7 +200,7 @@ export default function WaitlistForm({ onSuccessChange }: FormProps) {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 20 }}
-                className="space-y-3来说"
+                className="space-y-3"
               >
                 <input
                   type="text"
@@ -208,12 +208,12 @@ export default function WaitlistForm({ onSuccessChange }: FormProps) {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Name (optional)"
-                  className="w-full bg-background border border-border text-foreground px-4 py-3 rounded-[12px] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                  className="w-full bg-white dark:bg-mist-900 border border-mist-300 dark:border-mist-700 text-mist-950 dark:text-white placeholder:text-mist-500 px-4 py-3 rounded-full focus:outline-none focus:ring-2 focus:ring-mist-950/20 dark:focus:ring-white/20"
                   disabled={loading}
                 />
                 <button
                   type="submit"
-                  className="w-full bg-primary text-black py-3 rounded-[12px] font-semibold hover:bg-opacity-90 disabled:opacity-50 flex items-center justify-center"
+                  className="w-full py-3 rounded-full font-medium text-sm bg-mist-950 text-white hover:bg-mist-800 dark:bg-mist-300 dark:text-mist-950 dark:hover:bg-mist-200 disabled:opacity-50 flex items-center justify-center"
                   disabled={loading}
                 >
                   {loading ? (
@@ -242,7 +242,7 @@ export default function WaitlistForm({ onSuccessChange }: FormProps) {
                       Joining...
                     </>
                   ) : (
-                    "Join Waitlist"
+                    "Join the waitlist to get early access."
                   )}
                 </button>
               </motion.div>
