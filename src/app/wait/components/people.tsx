@@ -86,10 +86,10 @@ export default function People({
           </div>
         ))}
       </div>
-      <motion.div className="text-sm md:text-base text-muted-foreground w-[270px]">
+      <motion.div className="text-sm md:text-base text-mist-500 dark:text-mist-400 w-[270px]">
         Join{" "}
         <motion.span
-          className="font-semibold text-foreground"
+          className="font-semibold text-mist-950 dark:text-white"
           key={displayCount}
           initial={{ opacity: 0.5, y: 5 }}
           animate={{ opacity: 1, y: 0 }}
