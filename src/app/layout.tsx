@@ -99,8 +99,9 @@ export default function RootLayout({
                 headline="Stay in the loop"
                 subheadline={
                   <p>
-                    Get customer support tips, product updates and customer
-                    stories that you can archive as soon as they arrive.
+                    Get content writing tips, product updates and customer
+                    stories that you can archive as soon as they arrive. And get
+                    notified when we launch. We'll never spam you.
                   </p>
                 }
               />

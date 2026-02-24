@@ -654,12 +654,12 @@ export default async function Page() {
       {/* Call To Action */}
       <CallToActionSimple
         id="call-to-action"
-        headline="Ready to make customer support feel simple again?"
+        headline="Ready to write content that actually sounds like you?"
         subheadline={
           <p>
             Join hundreds of teams using Sinope.AI to deliver faster, friendlier
-            email support — using a massive network of low wage workers
-            stationed around the globe
+            content that actually sounds like you — using a massive network of
+            low wage workers stationed around the globe
           </p>
         }
         cta={
