@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, type FormEvent, type ChangeEvent } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { useState, type FormEvent } from "react";
+import { motion } from "motion/react";
 import { toast } from "sonner";
 import confetti from "canvas-confetti";
 import { useSearchParams } from "next/navigation";
@@ -14,34 +14,21 @@ export default function WaitlistForm({ onSuccessChange }: FormProps) {
   const searchParams = useSearchParams();
   const refCode = searchParams.get("ref");
 
-  const [step, setStep] = useState<number>(1);
-  const [formData, setFormData] = useState({
-    email: "",
-    name: "",
-  });
-  const [loading, setLoading] = useState<boolean>(false);
-  const [success, setSuccess] = useState<boolean>(false);
-  const [shareLink, setShareLink] = useState<string>("");
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [shareLink, setShareLink] = useState("");
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const isValidEmail = (email: string) => {
+  const isValidEmail = (value: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
+    return emailRegex.test(value);
   };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
-    if (step === 1) {
-      if (!formData.email || !isValidEmail(formData.email)) {
-        toast.error("Please enter a valid email address");
-        return;
-      }
-      setStep(2);
+    if (!email || !isValidEmail(email)) {
+      toast.error("Please enter a valid email address");
       return;
     }
 
@@ -49,8 +36,7 @@ export default function WaitlistForm({ onSuccessChange }: FormProps) {
       setLoading(true);
 
       const payload = {
-        firstname: formData.name || formData.email.split("@")[0],
-        email: formData.email,
+        email,
         referredBy: refCode || undefined,
       };
 
@@ -105,7 +91,7 @@ export default function WaitlistForm({ onSuccessChange }: FormProps) {
         });
       }, 150);
 
-      setFormData({ email: "", name: "" });
+      setEmail("");
     } catch (error: unknown) {
       if (error instanceof Error) {
         const msg =
@@ -120,8 +106,7 @@ export default function WaitlistForm({ onSuccessChange }: FormProps) {
   };
 
   const resetForm = () => {
-    setStep(1);
-    setFormData({ email: "", name: "" });
+    setEmail("");
     setSuccess(false);
     setShareLink("");
     onSuccessChange?.(false);
@@ -167,87 +152,52 @@ export default function WaitlistForm({ onSuccessChange }: FormProps) {
         </motion.div>
       ) : (
         <form onSubmit={handleSubmit} className="relative">
-          <AnimatePresence mode="wait">
-            {step === 1 ? (
-              <motion.div
-                key="email"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                className="flex relative"
-              >
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Email"
-                  className="flex-grow bg-white dark:bg-mist-900 border border-mist-300 dark:border-mist-700 text-mist-950 dark:text-white placeholder:text-mist-500 px-4 py-3 rounded-full focus:outline-none focus:ring-2 focus:ring-mist-950/20 dark:focus:ring-white/20"
-                  disabled={loading}
-                  required
-                />
-                <button
-                  type="submit"
-                  className="absolute right-1.5 top-1.5 bottom-1.5 rounded-full px-5 font-medium text-sm bg-mist-950 text-white hover:bg-mist-800 dark:bg-mist-300 dark:text-mist-950 dark:hover:bg-mist-200 disabled:opacity-50"
-                  disabled={loading}
-                >
-                  Continue
-                </button>
-              </motion.div>
-            ) : (
-              <motion.div
-                key="name"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 20 }}
-                className="space-y-3"
-              >
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Name (optional)"
-                  className="w-full bg-white dark:bg-mist-900 border border-mist-300 dark:border-mist-700 text-mist-950 dark:text-white placeholder:text-mist-500 px-4 py-3 rounded-full focus:outline-none focus:ring-2 focus:ring-mist-950/20 dark:focus:ring-white/20"
-                  disabled={loading}
-                />
-                <button
-                  type="submit"
-                  className="w-full py-3 rounded-full font-medium text-sm bg-mist-950 text-white hover:bg-mist-800 dark:bg-mist-300 dark:text-mist-950 dark:hover:bg-mist-200 disabled:opacity-50 flex items-center justify-center"
-                  disabled={loading}
-                >
-                  {loading ? (
-                    <>
-                      <svg
-                        className="animate-spin -ml-1 mr-2 h-4 w-4"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                      >
-                        <title>Loading</title>
-                        <circle
-                          className="opacity-25"
-                          cx="12"
-                          cy="12"
-                          r="10"
-                          stroke="currentColor"
-                          strokeWidth="4"
-                        />
-                        <path
-                          className="opacity-75"
-                          fill="currentColor"
-                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                        />
-                      </svg>
-                      Joining...
-                    </>
-                  ) : (
-                    "Join the waitlist to get early access."
-                  )}
-                </button>
-              </motion.div>
-            )}
-          </AnimatePresence>
+          <div className="flex relative">
+            <input
+              type="email"
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Email"
+              className="flex-grow bg-white dark:bg-mist-900 border border-mist-300 dark:border-mist-700 text-mist-950 dark:text-white placeholder:text-mist-500 px-4 py-3 rounded-full focus:outline-none focus:ring-2 focus:ring-mist-950/20 dark:focus:ring-white/20"
+              disabled={loading}
+              required
+            />
+            <button
+              type="submit"
+              className="absolute right-1.5 top-1.5 bottom-1.5 rounded-full px-5 font-medium text-sm bg-mist-950 text-white hover:bg-mist-800 dark:bg-mist-300 dark:text-mist-950 dark:hover:bg-mist-200 disabled:opacity-50 inline-flex items-center justify-center"
+              disabled={loading}
+            >
+              {loading ? (
+                <>
+                  <svg
+                    className="animate-spin -ml-1 mr-2 h-4 w-4"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <title>Loading</title>
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    />
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    />
+                  </svg>
+                  Joining...
+                </>
+              ) : (
+                "Join"
+              )}
+            </button>
+          </div>
         </form>
       )}
     </div>
