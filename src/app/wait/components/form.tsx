@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import { toast } from "sonner";
 import confetti from "canvas-confetti";
 import { useSearchParams } from "next/navigation";
+import { useWaitlistSubmit } from "~/hooks/use-waitlist-submit";
 
 interface FormProps {
   onSuccessChange?: (success: boolean) => void;
@@ -15,94 +16,38 @@ export default function WaitlistForm({ onSuccessChange }: FormProps) {
   const refCode = searchParams.get("ref");
 
   const [email, setEmail] = useState("");
-  const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [shareLink, setShareLink] = useState("");
-
-  const isValidEmail = (value: string) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(value);
-  };
+  const { submit, loading } = useWaitlistSubmit();
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
-    if (!email || !isValidEmail(email)) {
-      toast.error("Please enter a valid email address");
-      return;
-    }
+    const result = await submit(email, refCode ?? undefined);
+    if (!result) return;
 
-    try {
-      setLoading(true);
+    const link = `${window.location.origin}/?ref=${result.code}`;
+    setShareLink(link);
+    setSuccess(true);
+    onSuccessChange?.(true);
 
-      const payload = {
-        email,
-        referredBy: refCode || undefined,
-      };
-
-      const mailRes = await fetch("/api/mail", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+    setTimeout(() => {
+      confetti({
+        particleCount: 120,
+        spread: 80,
+        origin: { y: 0.6 },
+        colors: [
+          "#ff0000",
+          "#00ff00",
+          "#0000ff",
+          "#ffff00",
+          "#ff00ff",
+          "#00ffff",
+        ],
       });
+    }, 150);
 
-      if (!mailRes.ok) {
-        const err = mailRes.status === 429 ? "Rate limited" : "Email failed";
-        throw new Error(err);
-      }
-
-      const notionRes = await fetch("/api/notion", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      if (!notionRes.ok) {
-        const errData = await notionRes.json();
-        if (notionRes.status === 409) {
-          toast.error(errData.error || "You're already on the waitlist!");
-          return;
-        }
-        const err = notionRes.status === 429 ? "Rate limited" : "Notion failed";
-        throw new Error(err);
-      }
-
-      const { code } = await notionRes.json();
-      const link = `${window.location.origin}/?ref=${code}`;
-      setShareLink(link);
-
-      toast.success("You're on the waitlist!");
-      setSuccess(true);
-      onSuccessChange?.(true);
-
-      setTimeout(() => {
-        confetti({
-          particleCount: 120,
-          spread: 80,
-          origin: { y: 0.6 },
-          colors: [
-            "#ff0000",
-            "#00ff00",
-            "#0000ff",
-            "#ffff00",
-            "#ff00ff",
-            "#00ffff",
-          ],
-        });
-      }, 150);
-
-      setEmail("");
-    } catch (error: unknown) {
-      if (error instanceof Error) {
-        const msg =
-          error.message === "Rate limited"
-            ? "Too many attempts. Try again later."
-            : "Something went wrong. Try again.";
-        toast.error(msg);
-      }
-    } finally {
-      setLoading(false);
-    }
+    setEmail("");
   };
 
   const resetForm = () => {

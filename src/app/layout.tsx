@@ -9,9 +9,9 @@ import {
   FooterCategory,
   FooterLink,
   FooterWithNewsletterFormCategoriesAndSocialIcons,
-  NewsletterForm,
   SocialLink,
 } from "@/components/sections/footer-with-newsletter-form-categories-and-social-icons";
+import { FooterWaitlistForm } from "@/components/sections/footer-waitlist-form";
 import {
   NavbarLink,
   NavbarLogo,
@@ -64,7 +64,7 @@ export default function RootLayout({
             }
             logo={
               <NavbarLogo href="/">
-                <Image
+                {/* <Image
                   src="/img/logos/oatmeal-mona-color-mist-950.svg"
                   alt="Landy by Sinope.AI"
                   className="dark:hidden"
@@ -77,7 +77,7 @@ export default function RootLayout({
                   className="not-dark:hidden"
                   width={113}
                   height={28}
-                />
+                /> */}
               </NavbarLogo>
             }
             actions={
@@ -95,7 +95,7 @@ export default function RootLayout({
           <FooterWithNewsletterFormCategoriesAndSocialIcons
             id="footer"
             cta={
-              <NewsletterForm
+              <FooterWaitlistForm
                 headline="Stay in the loop"
                 subheadline={
                   <p>
@@ -103,7 +103,6 @@ export default function RootLayout({
                     stories that you can archive as soon as they arrive.
                   </p>
                 }
-                action="#"
               />
             }
             links={

@@ -52,12 +52,12 @@ export default async function Page() {
             cta="Learn more"
           />
         }
-        headline="Write LinkedIn content that actually sounds like you"
+        headline="Write content that actually sounds like you"
         subheadline={
           <p>
             Sinop AI helps founders, creators, and operators build a real
-            content system for LinkedIn — from ideas to posts to scheduling —
-            fully automated, and written in your voice.
+            content system from ideas to posts to scheduling — fully automated,
+            and written in your voice.
           </p>
         }
         cta={
