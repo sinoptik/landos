@@ -27,7 +27,7 @@ export default function Page() {
         }
         photo={
           <Image
-            src="/img/photos/1111.png"
+            src="/img/photos/1.png"
             alt=""
             width={1800}
             height={945}

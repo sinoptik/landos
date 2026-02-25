@@ -114,7 +114,7 @@ export default async function Page() {
               placement="bottom"
             >
               <Image
-                src="/img/screenshots/1111.png"
+                src="/img/screenshots/1.webp"
                 alt=""
                 className="bg-white/75 dark:hidden"
                 width={3440}
