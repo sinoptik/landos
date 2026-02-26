@@ -4,9 +4,13 @@ import { Container } from "@/components/elements/container";
 import { Eyebrow } from "@/components/elements/eyebrow";
 import { Heading } from "@/components/elements/heading";
 import { Text } from "@/components/elements/text";
-import posts from "@/data/blog-posts.json";
+import { prisma } from "@/lib/prisma";
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  const posts = await prisma.post.findMany({
+    orderBy: { publishedAt: "desc" },
+  });
+
   return (
     <section className="py-16">
       <Container className="flex flex-col gap-10 sm:gap-16">
@@ -42,8 +46,8 @@ export default function BlogPage() {
               <div className="mt-auto flex items-center gap-2 pt-4 text-sm text-mist-500 dark:text-mist-500">
                 <span>{post.writtenBy}</span>
                 <span aria-hidden="true">&middot;</span>
-                <time dateTime={post.publishedAt}>
-                  {new Date(post.publishedAt).toLocaleDateString("en-US", {
+                <time dateTime={post.publishedAt.toISOString()}>
+                  {post.publishedAt.toLocaleDateString("en-US", {
                     year: "numeric",
                     month: "long",
                     day: "numeric",

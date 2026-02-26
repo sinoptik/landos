@@ -4,10 +4,11 @@ import { Container } from "@/components/elements/container";
 import { Eyebrow } from "@/components/elements/eyebrow";
 import { Heading } from "@/components/elements/heading";
 import { Text } from "@/components/elements/text";
-import posts from "@/data/blog-posts.json";
+import { prisma } from "@/lib/prisma";
 
-export function generateStaticParams() {
-  return posts.map((post) => ({ slug: post.slug }));
+export async function generateStaticParams() {
+  const posts = await prisma.post.findMany({ select: { slug: true } });
+  return posts.map((post: { slug: string }) => ({ slug: post.slug }));
 }
 
 export default async function BlogPostPage({
@@ -16,7 +17,7 @@ export default async function BlogPostPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const post = posts.find((p) => p.slug === slug);
+  const post = await prisma.post.findUnique({ where: { slug } });
 
   if (!post) {
     notFound();
@@ -33,8 +34,8 @@ export default async function BlogPostPage({
             <div className="flex items-center gap-2 text-sm text-mist-500 dark:text-mist-500">
               <span>{post.writtenBy}</span>
               <span aria-hidden="true">&middot;</span>
-              <time dateTime={post.publishedAt}>
-                {new Date(post.publishedAt).toLocaleDateString("en-US", {
+              <time dateTime={post.publishedAt.toISOString()}>
+                {post.publishedAt.toLocaleDateString("en-US", {
                   year: "numeric",
                   month: "long",
                   day: "numeric",
@@ -45,7 +46,7 @@ export default async function BlogPostPage({
 
           {/* Content */}
           <Text size="lg" className="flex flex-col gap-6">
-            {post.content.map((paragraph, i) => (
+            {post.content.map((paragraph: string, i: number) => (
               <p key={i}>{paragraph}</p>
             ))}
           </Text>
