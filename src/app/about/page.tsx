@@ -81,7 +81,7 @@ export default function Page() {
         byline="Founder at Pine Labs"
       />
       {/* Team */}
-      <TeamFourColumnGrid
+      {/* <TeamFourColumnGrid
         id="team"
         headline="Our leadership team"
         subheadline={
@@ -196,7 +196,7 @@ export default function Page() {
           name="Leonard Wu"
           byline="Senior Designer"
         />
-      </TeamFourColumnGrid>
+      </TeamFourColumnGrid> */}
       {/* Call To Action */}
       <CallToActionSimple
         id="call-to-action"
