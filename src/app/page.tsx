@@ -48,16 +48,15 @@ export default async function Page() {
         eyebrow={
           <AnnouncementBadge
             href="#"
-            text="Without burning out. Without guessing what to post. Without losing your voice."
-            cta="Learn more"
+            text="Stay consistent. Without burning out. Without guessing. Without losing your voice."
+            // cta="Learn more"
           />
         }
-        headline="Write content that actually sounds like you"
+        headline="Get a clear content plan and scheduled distribution in one hour per week"
         subheadline={
           <p>
-            Sinop AI helps founders, creators, and operators build a real
-            content system from ideas to posts to scheduling — fully automated,
-            and written in your voice.
+            Built by founders and operators who understand how consistent
+            systems drive reach and authority on LinkedIn and beyond.
           </p>
         }
         cta={
