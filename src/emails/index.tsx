@@ -20,9 +20,10 @@ const WaitlistEmail = () => {
     <Html>
       <Tailwind>
         <Head>
-          <title>Welcome to Waitly</title>
+          <title>You're on the list – Sinope AI</title>
           <Preview>
-            Thanks for joining our waitlist! We'll keep you in the loop.
+            Thanks for joining the Sinope AI waitlist. You'll be the first to
+            know when we open early access.
           </Preview>
           <style>
             {`
@@ -37,11 +38,11 @@ const WaitlistEmail = () => {
           <Container className="bg-[#18181B] rounded-[8px] mx-auto p-[32px] max-w-[600px]">
             <Section className="mt-[16px] text-center">
               <Text className="text-[28px] font-bold text-white m-0">
-                Welcome to <span className="text-[#DFFF1A]">Waitly</span>
+                You're on the list <span className="text-[#DFFF1A]">👊</span>
               </Text>
 
               <Text className="text-[18px] text-[#A1A1AA] mt-[16px] mb-[16px]">
-                We're thrilled to have you join our waitlist
+                Welcome to the Sinope AI waitlist
               </Text>
 
               <Hr className="border-solid border-[#27272A] my-[16px] w-[80px] mx-auto" />
@@ -49,27 +50,39 @@ const WaitlistEmail = () => {
 
             <Section>
               <Text className="text-[16px] leading-[24px] text-white mt-[32px]">
-                Hi there,
+                Hi,
               </Text>
 
               <Text className="text-[16px] leading-[24px] text-[#E4E4E7]">
-                Thanks for joining the waitlist for our Next.js + Notion CMS
-                template! We're a small team at Idee8 working to help businesses
-                like yours grow online, and we couldn't be more excited to have
-                you with us.
+                Thanks for joining the Sinope AI waitlist.
               </Text>
 
               <Text className="text-[16px] leading-[24px] text-[#E4E4E7]">
-                I'll personally keep you updated on our progress and let you
-                know the moment it's ready for you. Got questions or ideas in
-                the meantime? Just hit reply – I read every email and would love
-                to hear from you.
+                We're building a content operating system for founders,
+                operators, and content teams who are tired of posting randomly
+                and losing momentum.
+              </Text>
+
+              <Text className="text-[16px] leading-[24px] text-[#E4E4E7]">
+                You'll be the first to know when we open early access.
+              </Text>
+
+              <Text className="text-[16px] leading-[24px] text-[#E4E4E7]">
+                In the meantime, if you're currently struggling with
+                consistency, planning, or managing multiple brands, just hit
+                reply. I read every message and your input directly shapes what
+                we build.
+              </Text>
+
+              <Text className="text-[16px] leading-[24px] text-[#E4E4E7]">
+                If you're curious about what we're working on, you can book a
+                quick call here:
               </Text>
 
               <Section className="my-[32px] text-center">
                 <Button
                   className="bg-[#DFFF1A] text-[#09090B] font-bold py-[12px] px-[24px] rounded-[12px] no-underline text-center box-border"
-                  href="https://cal.com/idee8/quick-chat"
+                  href="https://calendly.com/nikita-sinope/30min"
                 >
                   <span
                     style={{ display: "inline-flex", alignItems: "center" }}
@@ -159,22 +172,15 @@ const WaitlistEmail = () => {
               </Section>
 
               <Text className="text-[16px] leading-[24px] text-[#E4E4E7]">
-                Want to see what we're up to? Follow us at{" "}
-                <Link
-                  href="https://twitter.com/Idee8Agency"
-                  className="text-[#DFFF1A] underline"
-                >
-                  @Idee8Agency
-                </Link>{" "}
-                for behind-the-scenes updates and early previews.
+                More soon.
               </Text>
 
               <Text className="text-[16px] leading-[24px] text-[#E4E4E7] mt-[24px]">
-                Cheers,
+                Nikita
               </Text>
 
               <Text className="text-[16px] font-bold text-white mb-[32px]">
-                The Idee8 Team
+                Founder, Sinope AI
               </Text>
             </Section>
 
@@ -182,21 +188,18 @@ const WaitlistEmail = () => {
 
             <Section>
               <Text className="text-[12px] text-[#71717A] text-center m-0">
-                © {currentYear} Idee8 Agency. All rights reserved.
-              </Text>
-              <Text className="text-[12px] text-[#71717A] text-center m-0">
-                123 Digital Avenue, Suite 101, Kigali, Rwanda
+                © {currentYear} Sinope AI. All rights reserved.
               </Text>
               <Text className="text-[12px] text-[#71717A] text-center mt-[16px]">
                 <Link
-                  href="https://idee8.com/unsubscribe"
+                  href="https://sinope.ai/unsubscribe"
                   className="text-[#DFFF1A]"
                 >
                   Unsubscribe
                 </Link>{" "}
                 •{" "}
                 <Link
-                  href="https://idee8.com/privacy"
+                  href="https://sinope.ai/privacy"
                   className="text-[#DFFF1A]"
                 >
                   Privacy Policy
