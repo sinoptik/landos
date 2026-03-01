@@ -203,7 +203,7 @@ const WaitlistEmail = ({ unsubscribeUrl = "https://sinope.ai/unsubscribe" }: Wai
                 </Link>{" "}
                 •{" "}
                 <Link
-                  href="https://sinope.ai/privacy"
+                  href="https://sinope.ai/privacy-policy"
                   className="text-[#DFFF1A]"
                 >
                   Privacy Policy
