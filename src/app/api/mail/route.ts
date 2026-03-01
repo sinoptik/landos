@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
   const { data, error } = await resend.emails.send({
     from: process.env.RESEND_FROM_EMAIL || "",
     to: [email],
-    subject: "Welcome to Next.js + Notion CMS Waitlist",
+    subject: "You’re on the list – Sinope AI",
     react: WelcomeTemplate(),
   });
 
