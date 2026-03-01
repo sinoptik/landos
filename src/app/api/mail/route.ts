@@ -35,13 +35,21 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Too many requests!" }, { status: 429 });
   }
 
-  const { email } = await request.json();
+  const { email, unsubscribeId } = await request.json();
+
+  const baseUrl =
+    process.env.NEXT_PUBLIC_APP_URL ||
+    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://sinope.ai");
+
+  const unsubscribeUrl = unsubscribeId
+    ? `${baseUrl}/unsubscribe?id=${unsubscribeId}`
+    : `${baseUrl}/unsubscribe`;
 
   const { data, error } = await resend.emails.send({
     from: process.env.RESEND_FROM_EMAIL || "",
     to: [email],
-    subject: "You’re on the list – Sinope AI",
-    react: WelcomeTemplate(),
+    subject: "You're on the list – Sinope AI",
+    react: WelcomeTemplate({ unsubscribeUrl }),
   });
 
   if (error) {

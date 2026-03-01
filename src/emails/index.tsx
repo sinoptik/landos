@@ -13,7 +13,11 @@ import {
   Tailwind,
 } from "@react-email/components";
 
-const WaitlistEmail = () => {
+interface WaitlistEmailProps {
+  unsubscribeUrl?: string;
+}
+
+const WaitlistEmail = ({ unsubscribeUrl = "https://sinope.ai/unsubscribe" }: WaitlistEmailProps) => {
   const currentYear = new Date().getFullYear();
 
   return (
@@ -192,7 +196,7 @@ const WaitlistEmail = () => {
               </Text>
               <Text className="text-[12px] text-[#71717A] text-center mt-[16px]">
                 <Link
-                  href="https://sinope.ai/unsubscribe"
+                  href={unsubscribeUrl}
                   className="text-[#DFFF1A]"
                 >
                   Unsubscribe

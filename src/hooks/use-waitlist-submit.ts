@@ -25,16 +25,6 @@ export function useWaitlistSubmit() {
     try {
       setLoading(true);
 
-      const mailRes = await fetch("/api/mail", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      if (!mailRes.ok) {
-        throw new Error(mailRes.status === 429 ? "Rate limited" : "Email failed");
-      }
-
       const notionRes = await fetch("/api/notion", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -50,7 +40,18 @@ export function useWaitlistSubmit() {
         throw new Error(notionRes.status === 429 ? "Rate limited" : "Notion failed");
       }
 
-      const { code } = await notionRes.json();
+      const { code, notionId } = await notionRes.json();
+
+      const mailRes = await fetch("/api/mail", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, unsubscribeId: notionId }),
+      });
+
+      if (!mailRes.ok) {
+        throw new Error(mailRes.status === 429 ? "Rate limited" : "Email failed");
+      }
+
       toast.success("You're on the waitlist!");
       return { code };
     } catch (error: unknown) {
