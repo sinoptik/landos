@@ -1,9 +1,9 @@
-import { clsx } from 'clsx/lite'
-import type { ComponentProps, ReactNode } from 'react'
-import { Container } from './container'
-import { Eyebrow } from './eyebrow'
-import { Subheading } from './subheading'
-import { Text } from './text'
+import { clsx } from "clsx/lite";
+import type { ComponentProps, ReactNode } from "react";
+import { Container } from "./container";
+import { Eyebrow } from "./eyebrow";
+import { Subheading } from "./subheading";
+import { Text } from "./text";
 
 export function Section({
   eyebrow,
@@ -14,15 +14,15 @@ export function Section({
   children,
   ...props
 }: {
-  eyebrow?: ReactNode
-  headline?: ReactNode
-  subheadline?: ReactNode
-  cta?: ReactNode
-} & ComponentProps<'section'>) {
+  eyebrow?: ReactNode;
+  headline?: ReactNode;
+  subheadline?: ReactNode;
+  cta?: ReactNode;
+} & ComponentProps<"section">) {
   return (
-    <section className={clsx('py-16', className)} {...props}>
+    <section className={clsx("py-16", className)} {...props}>
       <Container className="flex flex-col gap-10 sm:gap-16">
-        {headline && (
+        {headline ? (
           <div className="flex max-w-2xl flex-col gap-6">
             <div className="flex flex-col gap-2">
               {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
@@ -31,9 +31,13 @@ export function Section({
             {subheadline && <Text className="text-pretty">{subheadline}</Text>}
             {cta}
           </div>
+        ) : (
+          <div className="max-w-3xl ">
+            {subheadline && <Text className="text-pretty">{subheadline}</Text>}
+          </div>
         )}
         <div>{children}</div>
       </Container>
     </section>
-  )
+  );
 }

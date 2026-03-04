@@ -139,7 +139,7 @@ export default function WaitlistForm({ onSuccessChange }: FormProps) {
                   Joining...
                 </>
               ) : (
-                "Join"
+                "Join the Waitlist"
               )}
             </button>
           </div>

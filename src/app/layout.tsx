@@ -53,39 +53,39 @@ export default function RootLayout({
             id="navbar"
             links={
               <>
-                <NavbarLink href="/pricing">Pricing</NavbarLink>
+                {/* <NavbarLink href="/pricing">Pricing</NavbarLink> */}
                 <NavbarLink href="/about">About</NavbarLink>
                 <NavbarLink href="/blog">Blog</NavbarLink>
-                <NavbarLink href="#">Docs</NavbarLink>
-                <NavbarLink href="#" className="sm:hidden">
+                {/* <NavbarLink href="#">Docs</NavbarLink> */}
+                {/* <NavbarLink href="#" className="sm:hidden">
                   Log in
-                </NavbarLink>
+                </NavbarLink> */}
               </>
             }
             logo={
               <NavbarLogo href="/">
-                {/* <Image
-                  src="/img/logos/oatmeal-mona-color-mist-950.svg"
+                <Image
+                  src="/img/logos/sinope-logo-mist-950.png"
                   alt="Landy by Sinope.AI"
                   className="dark:hidden"
-                  width={113}
+                  width={28}
                   height={28}
                 />
                 <Image
-                  src="/img/logos/oatmeal-mona-color-white.svg"
+                  src="/img/logos/sinope-logo-white.png"
                   alt="Landy by Sinope.AI"
                   className="not-dark:hidden"
-                  width={113}
+                  width={28}
                   height={28}
-                /> */}
+                />
               </NavbarLogo>
             }
             actions={
               <>
-                <PlainButtonLink href="#" className="max-sm:hidden">
+                {/* <PlainButtonLink href="#" className="max-sm:hidden">
                   Log in
-                </PlainButtonLink>
-                <ButtonLink href="#">Get started</ButtonLink>
+                </PlainButtonLink> */}
+                {/* <ButtonLink href="#">Get started</ButtonLink> */}
               </>
             }
           />

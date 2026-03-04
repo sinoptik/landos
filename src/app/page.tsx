@@ -233,13 +233,30 @@ export default async function Page() {
       {/* Features */}
       <FeaturesTwoColumnWithDemos
         id="features"
-        eyebrow="No content fluff. No engagement hacks. Just systems that work."
-        headline="Everything you need to deliver personal, organized, and delightful content."
+        // eyebrow="No content fluff. No engagement hacks. Just systems that work."
+        // headline="Hi, thanks for checking out Sinope."
         subheadline={
-          <p>
-            Built by a serial founder who’s helped teams ship real products, fix
-            broken systems, and stay consistent when things get messy.
-          </p>
+          <div className="flex flex-col gap-2">
+            <p>Hi, thanks for checking out Sinope.</p>
+            <p>
+              If you’ve tried posting online, you know the real problem isn’t
+              “write, post, repeat.” The hard part is staying consistent.
+            </p>
+            <p>
+              You start with energy. A few posts go out. Then work gets busy and
+              consistency disappears.
+            </p>
+            <p>Ideas stay in notes and never become posts.</p>
+            <p>
+              Content needs a system, just like going to the gym. You don’t rely
+              on motivation. You follow a routine.
+            </p>
+            <p>
+              That’s why I’m building Sinope. It turns your ideas into
+              consistent posts so you can focus on building, not fighting the
+              blank page.
+            </p>
+          </div>
         }
         features={
           <>
@@ -311,11 +328,11 @@ export default async function Page() {
                   goals — so you’re never staring at a blank screen.
                 </p>
               }
-              cta={
-                <Link href="#">
-                  See how it works <ArrowNarrowRightIcon />
-                </Link>
-              }
+              // cta={
+              //   <Link href="#">
+              //     See how it works <ArrowNarrowRightIcon />
+              //   </Link>
+              // }
             />
             <Feature
               demo={
@@ -387,11 +404,11 @@ export default async function Page() {
                   day.
                 </p>
               }
-              cta={
-                <Link href="#">
-                  See how it works <ArrowNarrowRightIcon />
-                </Link>
-              }
+              // cta={
+              //   <Link href="#">
+              //     See how it works <ArrowNarrowRightIcon />
+              //   </Link>
+              // }
             />
           </>
         }
@@ -413,17 +430,17 @@ export default async function Page() {
           stat="Founders"
           text="Who want to build a real brand, not just a LinkedIn account."
         />
-        <Stat
-          stat="Creators"
-          text="Who want to build a real audience, not just a X account."
-        />
+        <Stat stat="Creators" text="Who think deeply and want to share ideas" />
       </StatsWithGraph>
       {/* Testimonial */}
       <TestimonialThreeColumnGrid
         id="testimonial"
-        headline="What problems we solve"
+        headline="Built by a builder"
         subheadline={
-          <p>We've solved these problems for ourselves and our friends.</p>
+          <p>
+            Sinope AI is created by a technical founder who spends his time
+            solving messy systems problems and building real products.
+          </p>
         }
       >
         <Testimonial
@@ -572,7 +589,7 @@ export default async function Page() {
         />
       </FAQsTwoColumnAccordion>
       {/* Pricing */}
-      <PricingMultiTier
+      {/* <PricingMultiTier
         id="pricing"
         headline="Pricing to fit your business needs."
         plans={
@@ -649,17 +666,24 @@ export default async function Page() {
             />
           </>
         }
-      />
+      /> */}
       {/* Call To Action */}
       <CallToActionSimple
         id="call-to-action"
         headline="Ready to write content that actually sounds like you?"
         subheadline={
-          <p>
-            Join hundreds of teams using Sinope.AI to deliver faster, friendlier
-            content that actually sounds like you — using a massive network of
-            low wage workers stationed around the globe
-          </p>
+          <>
+            <p>
+              We’re opening access slowly while we build the first version.If
+              you want early access, join the waitlist.
+            </p>
+            <p>You’ll get:</p>
+            <ul>
+              <li>early product access</li>
+              <li>private testing invites</li>
+              <li>updates on new features</li>
+            </ul>
+          </>
         }
         cta={
           <div className="flex items-center gap-4">
