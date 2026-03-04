@@ -19,8 +19,8 @@ export default async function BlogPage() {
           <Heading>Blog</Heading>
           <Text size="lg" className="text-pretty">
             <p>
-              Insights, guides, and stories about customer support, AI, and
-              building better teams.
+              Insights, guides, and stories about content creation, AI, and
+              building better content.
             </p>
           </Text>
         </div>

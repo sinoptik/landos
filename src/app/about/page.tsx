@@ -10,6 +10,7 @@ import {
   TeamMember,
 } from "@/components/sections/team-four-column-grid";
 import { TestimonialTwoColumnWithLargePhoto } from "@/components/sections/testimonial-two-column-with-large-photo";
+import WaitlistForm from "../wait/components/form";
 
 export default function Page() {
   return (
@@ -17,12 +18,11 @@ export default function Page() {
       {/* Hero */}
       <HeroLeftAlignedWithPhoto
         id="hero"
-        headline="Your customer success is our mission."
+        headline="Clarity and consistency is our mission."
         subheadline={
           <p>
-            We're on a mission to take the human element completely out of
-            customer support — so your team can focus on what matters most,
-            profitability.
+            We're on a mission to take the human element completely out of hard
+            tasks — so you can focus on what matters most.
           </p>
         }
         photo={
@@ -39,23 +39,22 @@ export default function Page() {
       <StatsWithGraph
         id="stats"
         eyebrow="Built for scale"
-        headline="The inbox powering customer conversations everywhere."
+        headline="The idea bank powering content creation everywhere."
         subheadline={
           <p>
-            Sinope.AI helps teams deliver personal, organized, and fast customer
-            support across the world. From small startups to enterprise teams,
-            we process millions of messages each month — using a massive network
-            of low wage workers stationed around the globe.
+            Sinope.AI helps founders and creators deliver personal, organized,
+            and relevant content to their audience. From ideas to posts, we help
+            them stay consistent and build their brand.
           </p>
         }
       >
         <Stat
           stat="2M+"
-          text="Emails manually processed every week across thousands of teams."
+          text="Ideas manually captured every week across thousands of founders and creators."
         />
         <Stat
           stat="99.98%"
-          text="Uptime — because your customers never stop complaining."
+          text="Consistency — because your audience never stops engaging."
         />
       </StatsWithGraph>
       {/* Testimonial */}
@@ -63,9 +62,9 @@ export default function Page() {
         id="testimonial"
         quote={
           <p>
-            Ever since we started using Sinope.AI, our customer satisfaction
-            scores have skyrocketed. The personal touch that their human-AI
-            hybrid support provides is unparalleled.
+            Ever since we started using Sinope.AI, our engagement scores have
+            skyrocketed. The content we produce is consistent and relevant to
+            our audience.
           </p>
         }
         img={
@@ -200,23 +199,33 @@ export default function Page() {
       {/* Call To Action */}
       <CallToActionSimple
         id="call-to-action"
-        headline="Have anymore questions?"
+        headline="Join the waitlist"
         subheadline={
-          <p>
-            Chat to someone on our sales team, who will make promises about our
-            roadmap that we won't keep.
-          </p>
+          <>
+            <p>
+              We’re opening access slowly while we build the first version. If
+              you want early access, join the waitlist.
+            </p>
+            <p>You’ll get:</p>
+            <ul>
+              <li>early product access</li>
+              <li>private testing invites</li>
+              <li>updates on new features</li>
+            </ul>
+          </>
         }
         cta={
-          <div className="flex items-center gap-4">
-            <ButtonLink href="#" size="lg">
-              Chat with us
-            </ButtonLink>
-
-            <PlainButtonLink href="#" size="lg">
-              Book a demo <ChevronIcon />
-            </PlainButtonLink>
+          <div className="max-w-md">
+            <WaitlistForm />
           </div>
+          // <div className="flex items-center gap-4">
+          //   <ButtonLink href="#" size="lg">
+          //     Chat with us
+          //   </ButtonLink>
+          //   <PlainButtonLink href="#" size="lg">
+          //     Book a demo <ChevronIcon />
+          //   </PlainButtonLink>
+          // </div>
         }
       />
     </>

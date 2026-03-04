@@ -34,6 +34,7 @@ import {
 } from "@/components/sections/testimonials-three-column-grid";
 import { getNotionDatabaseRowCount } from "~/lib/utils";
 import Hero from "./wait/components/hero";
+import WaitlistForm from "./wait/components/form";
 
 export default async function Page() {
   const waitlistPeople = await getNotionDatabaseRowCount(
@@ -569,23 +570,44 @@ export default async function Page() {
       <FAQsTwoColumnAccordion id="faqs" headline="Questions & Answers">
         <Faq
           id="faq-1"
-          question="Do I need a credit card to start the free trial?"
-          answer="Yes, but don't worry, you won't be charged until the trial period is over. We won't send you an email reminding you when this happens because we are really hoping you'll forget and we can keep charging you until your cards expires"
+          question="How does Sinope AI work?"
+          answer="You bring the ideas. Sinope turns them into consistent content.
+
+It gives you a simple system so you’re not staring at an empty editor every week."
         />
         <Faq
           id="faq-2"
-          question="Can my whole team use the same inbox?"
-          answer="Yes, the more the merrier! Sinope.AI works best when your entire company has access. We will charge you per additional seat, but we won't tell you about this until you get your invoice."
+          question="How do I capture ideas?"
+          answer="Just drop short thoughts, notes, or voice memos.
+
+Sinope stores them and organizes them into an idea bank you can use anytime."
         />
         <Faq
           id="faq-3"
-          question="Is the AI agent actually a bunch of people in India?"
-          answer="Not just India! We have people in lots of countries around the world pretending to be an AI, including some that are currently under sanctions, so we can't legally mention them here."
+          question="How does Sinope write in my voice?"
+          answer="Sinope first studies how you write and speak.  
+Your tone, vocabulary, and point of view.
+
+Then it generates posts that sound like you."
         />
         <Faq
           id="faq-4"
-          question="Does Sinope.AI replace my email client?"
-          answer="Absolutely. The idea is that we transition you away from email entirely, so you become completely dependent on our service. Like a parasite living off a host."
+          question="Will the posts feel generic?"
+          answer="No. Sinope starts from your ideas.
+
+It turns them into clear posts written in your voice and ready to publish."
+        />
+        <Faq
+          id="faq-5"
+          question="How does it help me reach the right audience?"
+          answer="Sinope helps identify the people your ideas are for and shapes posts so they resonate with them."
+        />
+        <Faq
+          id="faq-6"
+          question="How does it help me stay consistent?"
+          answer="Posts can be scheduled and published automatically.
+
+Your ideas keep showing up online even when you're busy building your company."
         />
       </FAQsTwoColumnAccordion>
       {/* Pricing */}
@@ -686,14 +708,8 @@ export default async function Page() {
           </>
         }
         cta={
-          <div className="flex items-center gap-4">
-            <ButtonLink href="#" size="lg">
-              Start free trial
-            </ButtonLink>
-
-            <PlainButtonLink href="#" size="lg">
-              Book a demo <ChevronIcon />
-            </PlainButtonLink>
+          <div className="max-w-md">
+            <WaitlistForm />
           </div>
         }
       />
