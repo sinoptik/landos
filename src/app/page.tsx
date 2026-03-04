@@ -1,6 +1,7 @@
 "use server";
 
 import Image from "next/image";
+import { Suspense } from "react";
 
 import { AnnouncementBadge } from "@/components/elements/announcement-badge";
 import {
@@ -709,7 +710,9 @@ Your ideas keep showing up online even when you're busy building your company."
         }
         cta={
           <div className="max-w-md">
-            <WaitlistForm />
+            <Suspense>
+              <WaitlistForm />
+            </Suspense>
           </div>
         }
       />

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Suspense } from "react";
 
 import { ButtonLink, PlainButtonLink } from "@/components/elements/button";
 import { ChevronIcon } from "@/components/icons/chevron-icon";
@@ -216,7 +217,9 @@ export default function Page() {
         }
         cta={
           <div className="max-w-md">
-            <WaitlistForm />
+            <Suspense>
+              <WaitlistForm />
+            </Suspense>
           </div>
           // <div className="flex items-center gap-4">
           //   <ButtonLink href="#" size="lg">
